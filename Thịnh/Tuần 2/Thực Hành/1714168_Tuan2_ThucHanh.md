@@ -1,22 +1,8 @@
 **Báo Cáo Công Việc Tuần 2**
 
-# Tổng quát kết quả Pnetlab #tổng-quát-kết-quả-pnetlab .list-paragraph
+# Tổng quát kết quả Pnetlab
 
-  -------------------------------------------------------------------------
-  **STT**   **Nội dung công việc**           **Kết quả**
-  --------- -------------------------------- ------------------------------
-  1         LLDP and DHCPv6                  Hoàn thành
-
-  2         IPv6 Tunnels and OSPFv3 Lab      Hoàn thành
-
-  3         IPv6 OSPFv3 Lab                  Hoàn thành
-
-  4         Cài đặt hệ thống giám sát        Hoàn thành
-            Pnetlab (Nagios)                 
-
-  5         Tìm hiểu về các ứng dụng chat và Hoàn thành
-            trao đổi nội bộ                  
-  -------------------------------------------------------------------------
+![image](https://user-images.githubusercontent.com/92511177/137463652-ca92afa3-ec99-43e6-a5b5-dc2b09a476ba.png)
 
 # LLDP and DHCPv6
 
