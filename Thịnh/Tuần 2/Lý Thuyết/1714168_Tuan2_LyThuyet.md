@@ -690,16 +690,16 @@ ii. **Hoạt động OSPF IPv6:**
 > \- Plugins có chức năng kiểm tra host và service rồi trả lại kết quả
 > cho nagios server.
 
-**ii. **Web server:**![](.//media/image14.png)
-    > 
-
+**ii. Web server:**
+>![](.//media/image14.png)
+>
 > \- Là nơi lưu trữ các file, các thành phần của website (file html,
 > css, ảnh,\...)
 >
 > \- Là nơi cung cấp dữ liệu của website cho người dùng muốn truy cập và
 > sử dụng. Nó sẽ cung cấp dữ liệu cho người dùng thông qua Internet.
 
-**iii.  **DATABASE (DB):**
+**iii.  DATABASE (DB):**
 
 > \- DB bao gồm DATA và DBMS
 >
