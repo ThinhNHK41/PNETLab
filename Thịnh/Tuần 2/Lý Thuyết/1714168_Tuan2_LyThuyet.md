@@ -183,9 +183,9 @@ Cách thức nhận biết DHCPv6 Client:
 
 # IPv6 Tunnels and OSPFv3 Lab
 
-a.  ## IPv6 Tunnels
+## a.   IPv6 Tunnels
 
-    i.  **Tổng quan công nghệ đường hầm Tunnel**
+    **i.  Tổng quan công nghệ đường hầm Tunnel**
 
 > \- Công nghệ đường hầm là một phương pháp sử dụng cơ sở hạ tầng sẵn có
 > của mạng IPv4 để thực hiện các kết nối IPv6 bằng cách sử dụng các
@@ -307,7 +307,7 @@ a.  ## IPv6 Tunnels
 > giữa hai router gateway của hai phân mạng có thể là sự lựa chọn tốt
 > nhất để có một kết nối ổn định.
 
-ii. **Tunnel Broker**
+**ii. Tunnel Broker**
 
 > \- Tunnel Broker là hình thức tunnel, trong đó một tổ chức đứng ra làm
 > trung gian, cung cấp kết nối tới Internet IPv6 cho những thành viên
@@ -679,9 +679,9 @@ ii. **Hoạt động OSPF IPv6:**
 
 -   ...
 
-    a.  ## Các khái niệm trong Nagios core
+## a.  Các khái niệm trong Nagios core
 
-        i.  **Plugins:**
+**i.  Plugins:**
 
 > \- Là một lớp trừu tượng giữa nagios server và host hay service
 >
@@ -690,7 +690,7 @@ ii. **Hoạt động OSPF IPv6:**
 > \- Plugins có chức năng kiểm tra host và service rồi trả lại kết quả
 > cho nagios server.
 
-ii. **Web server:**![](.//media/image14.png)
+**ii. **Web server:**![](.//media/image14.png)
     > 
 
 > \- Là nơi lưu trữ các file, các thành phần của website (file html,
@@ -699,7 +699,7 @@ ii. **Web server:**![](.//media/image14.png)
 > \- Là nơi cung cấp dữ liệu của website cho người dùng muốn truy cập và
 > sử dụng. Nó sẽ cung cấp dữ liệu cho người dùng thông qua Internet.
 
-i.  **DATABASE (DB):**
+**iii.  **DATABASE (DB):**
 
 > \- DB bao gồm DATA và DBMS
 >
@@ -716,7 +716,7 @@ i.  **DATABASE (DB):**
 >
 > \- Trong nagios có hỗ trợ 2 DB là mysql và postgreSQL.
 
-ii. **CGI (Common Gateway Interface):**
+**iv. CGI (Common Gateway Interface):**
 
 > ![](.//media/image15.png)
 > 
@@ -783,7 +783,7 @@ ii. **CGI (Common Gateway Interface):**
 > \- Bước 7: Web server sẽ sử dụng lại giao thức http trả lại thông tin
 > mà client yêu cầu.
 
-# Tài liệu tham khảo #tài-liệu-tham-khảo .list-paragraph
+# Tài liệu tham khảo 
 
 https://vi.wikipedia.org/wiki/Link_Layer_Discovery_Protocol#:\~:text=Giao%20th%E1%BB%A9c%20LLDP%20(Link%20Layer,2%20(Layer%20Data%20Link).
 
