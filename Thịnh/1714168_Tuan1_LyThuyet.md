@@ -200,144 +200,17 @@ Có thể sử dụng đăng ký cấu hình để
 
 ***Bảng D-1***: Mô tả bit Đăng ký Cấu hình
 
-+-----------+-----------------+----------------------------------------+
-| **Số thứ  | **Hệ thập lục   | **Ý nghĩa**                            |
-| tự Bit**  | phân**          |                                        |
-+-----------+-----------------+----------------------------------------+
-| 00-03     | 0x0000-0x000F   | Trường khởi động. Cài đặt trường khởi  |
-|           |                 | động xác định xem bộ định tuyến có tải |
-|           |                 | một hệ điều hành và nơi nó lấy hình    |
-|           |                 | ảnh hệ thống. (Chi tiết bảng D-2)      |
-+-----------+-----------------+----------------------------------------+
-| 06        | 0x0040          | Khiến phần mềm hệ thống bỏ qua nội     |
-|           |                 | dung của NVRAM                         |
-+-----------+-----------------+----------------------------------------+
-| 07        | 0x0080          | OEM bit đã bật                         |
-+-----------+-----------------+----------------------------------------+
-| 08        | 0x0100          | Kiểm soát khóa Break bảng điều khiển:  |
-|           |                 |                                        |
-|           |                 | -   (Mặc định của nhà sản xuất) Đặt    |
-|           |                 |     bit 8 khiến bộ xử lý bỏ qua khóa   |
-|           |                 |     Break bảng điều khiển              |
-|           |                 |                                        |
-|           |                 | -   Xóa bit 8 khiến bộ xử lý hiểu      |
-|           |                 |     Break như một lệnh để buộc router  |
-|           |                 |     vào chế độ màn hình ROM, tạm dừng  |
-|           |                 |     hoạt động bình thường.             |
-|           |                 |                                        |
-|           |                 | Break có thể được gửi trong 60s đầu    |
-|           |                 | tiên khi router khởi động lại, bất kể  |
-|           |                 | cài đặt đăng ký cấu hình.              |
-+-----------+-----------------+----------------------------------------+
-| 09        | 0x0200          | Bit này kiểm soát khởi động hệ thống:  |
-|           |                 |                                        |
-|           |                 | -   Thiết lập bit 9 khiến hệ thống sử  |
-|           |                 |     dụng bootstrap phụ.                |
-|           |                 |                                        |
-|           |                 | -   (Mặc định của nhà sản xuất) Xóa    |
-|           |                 |     bit 9 khiến hệ thống khởi động từ  |
-|           |                 |     bộ nhớ flash.                      |
-|           |                 |                                        |
-|           |                 | -   Bit này cơ bản không được điều     |
-|           |                 |     chỉnh.                             |
-+-----------+-----------------+----------------------------------------+
-| 10        | 0x0400          | Kiểm soát phần máy chủ của địa chỉ     |
-|           |                 | phát sóng IP:                          |
-|           |                 |                                        |
-|           |                 | -   Đặt bit 10 khiến bộ xử lý sử dụng  |
-|           |                 |     tất cả các số không.               |
-|           |                 |                                        |
-|           |                 | -   (Mặc định ban đầu) Việc xóa bit 10 |
-|           |                 |     khiến bộ xử lý sử dụng tất cả các  |
-|           |                 |     bit.                               |
-|           |                 |                                        |
-|           |                 | Bit 10 tương tác với bit 14, điều      |
-|           |                 | khiển các phần mạng và mạng con của    |
-|           |                 | địa chỉ IP quảng bá. (Chi tiết bảng    |
-|           |                 | D-3)                                   |
-+-----------+-----------------+----------------------------------------+
-| 05, 11,   | 0x0020, 0x0800, | Kiểm soát tốc độ dòng bảng điều khiển. |
-| 12        | 0x1000          | Xem bảng D-4 để biết tám bit khả dụng  |
-|           |                 | kết hợp và tốc độ dòng giao diện điều  |
-|           |                 | khiển.                                 |
-|           |                 |                                        |
-|           |                 | Mặc định của nhà máy là 9600 baud,     |
-|           |                 | trong đó các bit 5,11 và 12 đều bằng 0 |
-|           |                 | (rõ ràng).                             |
-|           |                 |                                        |
-|           |                 | Lưu ý: Không thể thay đổi các bit      |
-|           |                 | thanh ghi cấu hình tốc độ dòng bảng    |
-|           |                 | điều khiển từ Cisco IOS CLI2.          |
-|           |                 |                                        |
-|           |                 | Tuy nhiên, có thể thay đổi các bit này |
-|           |                 | từ màn hình ROM. Hoặc thay vì thay đổi |
-|           |                 | đăng ký cấu hình cài đặt, có thể đặt   |
-|           |                 | tốc độ dòng bảng điều khiển thông qua  |
-|           |                 | các lệnh Cisco IOS khác.               |
-+-----------+-----------------+----------------------------------------+
-| 13        | 0x2000          | Xác định cách bộ định tuyến phản ứng   |
-|           |                 | với lỗi khởi động mạng:                |
-|           |                 |                                        |
-|           |                 | -   Thiết lập bit 13 khiến bộ định     |
-|           |                 |     tuyến khởi động phần mềm ROM mặc   |
-|           |                 |     định sau 6 lần khởi động mạng      |
-|           |                 |     không thành công.                  |
-|           |                 |                                        |
-|           |                 | -   (Mặc định ) Xóa bit 13 khiển       |
-|           |                 |     router hoạt động vô thời hạn để    |
-|           |                 |     tiếp tục các nỗ lực khởi động      |
-|           |                 |     mạng.                              |
-+-----------+-----------------+----------------------------------------+
-| 14        | 0x4000          | Kiểm soát mạng và mạng con của địa chỉ |
-|           |                 | IP quảng bá:                           |
-|           |                 |                                        |
-|           |                 | -   Đặt bit 10 khiến bộ xử lý sử dụng  |
-|           |                 |     tất cả các số không.               |
-|           |                 |                                        |
-|           |                 | -   (Mặc định) Việc xóa bit 10 khiến   |
-|           |                 |     bộ xử lý sử dụng tất cả các bit.   |
-|           |                 |                                        |
-|           |                 | Bit 14 tương tác với bit 10, điều      |
-|           |                 | khiển phần máy chủ của địa chỉ IP      |
-|           |                 | quảng bá. (Chi tiết bảng D-3)          |
-+-----------+-----------------+----------------------------------------+
-| 15        | 0x8000          | Bật thông báo chẩn đoán và bỏ qua nội  |
-|           |                 | dung của NVRAM.                        |
-+-----------+-----------------+----------------------------------------+
+![image](https://user-images.githubusercontent.com/92511177/137448454-d7fffed8-ebe7-400e-a35b-2a9933ce99db.png)
+
+![image](https://user-images.githubusercontent.com/92511177/137448660-cad5e0d6-4609-4ff9-b155-e9fd2d16a1b0.png)
+
+![image](https://user-images.githubusercontent.com/92511177/137448593-8ef7778e-4135-4a11-a861-82c069ab0b50.png)
+
 
 **Bảng D-2: Mô tả Bit Đăng ký Cấu hình trường khởi động**
 
-+----------------+-----------------------------------------------------+
-| **Trường khởi  | **Ý nghĩa**                                         |
-| động (Bits 3,  |                                                     |
-| 2, 1, và 0)**  |                                                     |
-+----------------+-----------------------------------------------------+
-| 0000           | Ở chu kỳ nguồn tiếp theo hoặc tải lại, router khởi  |
-|                | động đến màn hình ROM (chương trình bootstrap). Để  |
-| (0x0)          | sử dụng màn hình ROM, bạn phải sử dụng thiết bị đầu |
-|                | cuối hoặc PC được kết nối với cổng giao diện điều   |
-|                | khiển của router.                                   |
-|                |                                                     |
-|                | Trong chế độ giám sát ROM, bạn phải khởi động hình  |
-|                | ảnh hệ thống theo cách thủ công hoặc bất kỳ hình    |
-|                | ảnh nào khác bằng cách sử dụng lệnh giám sát ROM    |
-|                | khởi động.                                          |
-+----------------+-----------------------------------------------------+
-| 0001           | Khởi động ảnh đầu tiên trong bộ nhớ flash dưới dạng |
-|                | hình ảnh hệ thống.                                  |
-| (0x01)         |                                                     |
-+----------------+-----------------------------------------------------+
-| 0010 - 1111    | Ở chu kỳ nguồn tiếp theo hoặc tải lại, bộ định      |
-|                | tuyến xử lý tuần tự mỗi lần khởi động lệnh hệ thống |
-| (0x02 - 0xF)   | ở chế độ cấu hình chung được lưu trữ trong cấu hình |
-|                | cho đến khi hệ thống khởi động thành công.          |
-|                |                                                     |
-|                | Nếu không có lệnh hệ thống khởi động nào được lưu   |
-|                | trữ trong tệp cấu hình hoặc nếu đang thực thi những |
-|                | lệnh đó không thành công, sau đó bộ định tuyến cố   |
-|                | gắng khởi động hình ảnh đầu tiên tập tin trong bộ   |
-|                | nhớ flash.                                          |
-+----------------+-----------------------------------------------------+
+![image](https://user-images.githubusercontent.com/92511177/137448801-ca253596-66b1-4e0c-ab4f-8746718e7952.png)
+
 
 Bảng D-3: Sự kết hợp Bit Đăng ký cấu hình Địa chỉ Broadcast
 
