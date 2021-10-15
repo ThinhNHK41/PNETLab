@@ -1,31 +1,6 @@
 **Báo Cáo Công Việc Tuần 1**
 
-# Tổng quát kết quả Pnetlab #tổng-quát-kết-quả-pnetlab .list-paragraph
-
-  -------------------------------------------------------------------------
-  **STT**   **Nội dung công việc**           **Kết quả**
-  --------- -------------------------------- ------------------------------
-  1         Cisco Discovery Protocol         Hoàn thành
-
-  2         Changing the Configuration       Hoàn thành
-            Register on IOS devices          
-
-  3         Trouble shooting OSPFv2 Neighbor Chưa hoàn thành
-            Adjacencies                      
-
-  4         OSPF LSA Types and Functions     Hoàn tành
-
-  5         Segment Routing OSPF Basic       Hoàn thành
-
-  6         OSPF Route LSA Filtering STUB    Chưa hoàn thành (câu 3, 4, 5,
-            NSSA                             6)
-
-  7         OSPF Summarization and Path      Chưa hoàn thành (câu 5, 6, 7)
-            Control                          
-
-  8         Cài đặt hệ thống Pnetlab trên    Chưa hoàn thành
-            Server khoa CNTT                 
-  -------------------------------------------------------------------------
+![image](https://user-images.githubusercontent.com/92511177/137457142-e413451d-2f54-4e98-84ad-cb4246ed0550.png)
 
 # Cisco discovery protocol
 
