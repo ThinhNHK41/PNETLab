@@ -607,19 +607,19 @@ b.  **Sơ đồ Lab:**
 > ![](.//media/image99.png)
 > 
 >
-> ![](.//media/image100.png)
+>![image100](https://user-images.githubusercontent.com/92511177/137456809-590f9d69-1dce-45b9-9f91-0bdf42cfb7ee.png)
 > 
 >
 > **Câu 4**: Cấu hình OSPF area 2 giữa R1, R3 và R4. Đừng quảng bá mạng
 > con 150.3.3.0/24 trên R3 qua OSPF
 >
-> ![](.//media/image101.png)
+> ![image101](https://user-images.githubusercontent.com/92511177/137456852-49709d68-0247-4b33-81c8-ef6965d14692.png)
 > 
 >
-> ![](.//media/image102.png)
+> ![image102](https://user-images.githubusercontent.com/92511177/137456874-9a9c631c-dcaf-4322-ba82-db49a5bf5e55.png)
 > 
 >
-> ![](.//media/image103.png)
+> ![image103](https://user-images.githubusercontent.com/92511177/137456892-94bfc554-a9c3-47e8-9c79-ad0edc012005.png)
 > 
 >
 > **Câu 5**: Cấu hình các mạng sau trên cổng LAN của R3:
