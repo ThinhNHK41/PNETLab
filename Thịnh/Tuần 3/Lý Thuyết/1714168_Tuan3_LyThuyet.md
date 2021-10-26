@@ -1,4 +1,4 @@
-# DMVPN Phase 3 with IPSec
+# 1. DMVPN Phase 3 with IPSec
 
 ## a. Khái niệm DMVPN
 
@@ -433,7 +433,7 @@ vào. Chìa khóa phải giống nhau trong tất cả các đường hầm.
 >
 > tunnel protection ipsec profile IPSEC-PROFILE
 
-# DMVPN Phase 3 without IPSec
+# 2. DMVPN Phase 3 without IPSec
 
 > \- Đối với DMVPN Phase 3 không có IPSec thì cũng sẽ cấu hình 3 bước
 > (Xác định cổng đường hầm, Xác định NHRP, Xác định quy trình EIGRP) như
@@ -441,7 +441,7 @@ vào. Chìa khóa phải giống nhau trong tất cả các đường hầm.
 > Phase 3 này thì ta sẽ không thể đảm bảo được tính bảo mật cho kiến
 > trúc DMVPN và tất cả dữ liệu.
 
-# DMVPN Phase 1 with Static Mapping
+# 3. DMVPN Phase 1 with Static Mapping
 
 > \- DMVPN Phase 1 là tính năng của Hub và Spoke.
 >
@@ -474,7 +474,7 @@ vào. Chìa khóa phải giống nhau trong tất cả các đường hầm.
     interface tunnel. Nhập địa chỉ NHRP vào đây vì nó sẽ dùng trong các
     giao thức routing (RIP, OSPF, EIGRP) yêu cầu multicast.
 
-# Vận hành giám sát hoạt động của Zabbix
+# 4. Vận hành giám sát hoạt động của Zabbix
 
 > **a. Zabbix là gì ?**
 >
