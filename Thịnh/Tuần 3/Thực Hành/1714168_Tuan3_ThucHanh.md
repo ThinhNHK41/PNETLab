@@ -1,3 +1,9 @@
+**Báo Cáo Công Việc Tuần 3**
+
+# Tổng quát kết quả Pnetlab
+
+![image](https://user-images.githubusercontent.com/92511177/138819881-a31cc35a-fc6d-4bf0-bbab-6bbc45407d8f.png)
+
 # 1. DMVPN Phase 3 with IPSec
 
 > **a. Mục tiêu Lab**
