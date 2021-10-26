@@ -1,4 +1,4 @@
-# DMVPN Phase 3 with IPSec
+# 1. DMVPN Phase 3 with IPSec
 
 > **a. Mục tiêu Lab**
 >
@@ -130,7 +130,7 @@ nhau thông qua mạng DMVPN.
 ![](.//media/image14.png)
 
 
-# DMVPN Phase 3 without IPSec
+# 2. DMVPN Phase 3 without IPSec
 
 > **a. Mục tiêu Lab**
 >
@@ -220,7 +220,7 @@ nhau thông qua mạng DMVPN.
 > Điều này tương tự với từ khóa broadcast ở cuối câu lệnh Frame Relay
 > hoặc ATM.
 
-# DMVPN Phase 1 with Static Mapping
+# 3. DMVPN Phase 1 with Static Mapping
 
 **a. Mục tiêu Lab**
 
@@ -339,14 +339,14 @@ Trên R4:
 ![](.//media/image28.png)
 
 
-# Vận hành giám sát hoạt động của PNETLab (Zabbix)
+# 4. Vận hành giám sát hoạt động của PNETLab (Zabbix)
 
 > ![](.//media/image29.png)
 > 
 >
 > Bước 1: Cài đặt Zabbix repository
 >
-> \- Ở bước này bạn copy các lệnh sau để cài đặt:
+- Ở bước này bạn copy các lệnh sau để cài đặt:
 >
 > wget
 > https://repo.zabbix.com/zabbix/5.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.4-1+ubuntu20.04_all.deb
@@ -363,41 +363,39 @@ Trên R4:
 > ![](.//media/image32.png)
 > 
 >
-> Bước 2: Cài đặt Zabbix server, frontend, agent
->
-> \- Sau đó bạn hãy cài đặt một số dịch vụ cần thiết như là
-> zabbix-server-mysql, zabbix-frontend-php,\...
->
+Bước 2: Cài đặt Zabbix server, frontend, agent
+
+- Sau đó bạn hãy cài đặt một số dịch vụ cần thiết như là zabbix-server-mysql, zabbix-frontend-php,\...
 > apt install zabbix-server-mysql zabbix-frontend-php zabbix-nginx-conf
 > zabbix-sql-scripts zabbix-agent
->
-> Bước 3: Cài đặt và cấu hình máy chủ MySQL
->
-> \- Để Zabbix hoạt động thì bắt buộc phải có một máy chủ cơ sở dữ liệu.
-> Zabbix có hỗ trợ cả PostgreSQL. Ta sẽ dùng MySQL làm máy chủ cơ sở dữ
-> liệu.
->
-> \- Cài đặt MySQL:
->
+
+Bước 3: Cài đặt và cấu hình máy chủ MySQL
+
+- Để Zabbix hoạt động thì bắt buộc phải có một máy chủ cơ sở dữ liệu.
+Zabbix có hỗ trợ cả PostgreSQL. Ta sẽ dùng MySQL làm máy chủ cơ sở dữ
+liệu.
+
+- Cài đặt MySQL:
+
 > apt install mysql-server
 >
-> \- Khởi động MySQL:
->
+- Khởi động MySQL:
+
 > systemctl enable mysql
 >
 > systemctl restart mysql
 >
 > systemctl status mysql
 >
-> \- Cấu hình MySQL:
->
+- Cấu hình MySQL:
+
 > mysql_secure_installation
->
-> Bước 4: Tạo Database cho Zabbix
->
-> \- Khi máy chủ MySQL đã sẵn sàng. Bạn hãy tạo một username và userdb
-> như sau. Lưu ý hãy thay P\@ssw0rd bằng mật khẩu bạn đặt.
->
+
+Bước 4: Tạo Database cho Zabbix
+
+- Khi máy chủ MySQL đã sẵn sàng. Bạn hãy tạo một username và userdb
+như sau. Lưu ý hãy thay P\@ssw0rd bằng mật khẩu bạn đặt.
+
 > \# mysql -uroot -p
 >
 > 1714168
@@ -413,62 +411,54 @@ Trên R4:
 > ![](.//media/image33.png)
 > 
 >
-> Bước 5: Import Database
->
-> \- Bạn hãy nhập lệnh bên dưới để nhập cơ sở dữ liệu vào database vừa
-> tạo
->
+Bước 5: Import Database
+
+- Bạn hãy nhập lệnh bên dưới để nhập cơ sở dữ liệu vào database vừa tạo
+
 > zcat /usr/share/doc/zabbix-sql-scripts/mysql/create.sql.gz \| mysql
 > -uzabbix -p zabbix
 >
 > ![](.//media/image34.png)
-> 
->
-> Bước 6: Cấu hình Database vào Zabbix server
->
-> \- Bạn hãy mở file /etc/zabbix/zabbix_server.conf, uncomment và sửa
-> dòng DBPassword (với mật khẩu đã tạo ở bước 4)
->
+
+
+Bước 6: Cấu hình Database vào Zabbix server
+
+- Bạn hãy mở file /etc/zabbix/zabbix_server.conf, uncomment và sửa dòng DBPassword (với mật khẩu đã tạo ở bước 4)
+
 > ![](.//media/image35.png)
-> 
->
-> Bước 7: Cấu hình PHP cho Zabbix frontend
->
-> \- Bạn hãy mở file /etc/zabbix/nginx.còn sau đó uncomment dòng listen
-> và server_name
->
+
+Bước 7: Cấu hình PHP cho Zabbix frontend
+- Bạn hãy mở file /etc/zabbix/nginx.còn sau đó uncomment dòng listen và server_name
+
 > ![](.//media/image36.png)
-> 
->
-> Bước 8: Khởi động Zabbix server và agent
->
+ 
+
+Bước 8: Khởi động Zabbix server và agent
+
 > systemctl restart zabbix-server zabbix-agent nginx php7.4-fpm
 >
 > systemctl enable zabbix-server zabbix-agent nginx php7.4-fpm
->
-> Bước 9: Mở port firewall
->
-> \- Bạn cần mở port firewall cho các dịch vụ
->
-> \- Đối với Firewalld
->
+
+Bước 9: Mở port firewall
+
+- Bạn cần mở port firewall cho các dịch vụ
+
+- Đối với Firewalld
+
 > firewall-cmd \--add-service=http,https \--permanent
 >
 > firewall-cmd \--add-port=10051/tcp,10050/tcp \--permanent
 >
 > firewall-cmd \--reload
->
-> Bước 10: Cấu hình Zabbix frontend
->
-> \- Đầu tiên mình sẽ tạo một Virtual host cho admin. Để khi truy cập từ
-> hostname cũng sẽ hoạt động. Mình sẽ sử dụng lệnh vi để soạn thảo. Và
-> tạo file với tên zabbix.conf
->
+
+Bước 10: Cấu hình Zabbix frontend
+
+- Đầu tiên mình sẽ tạo một Virtual host cho admin. Để khi truy cập từ hostname cũng sẽ hoạt động. Mình sẽ sử dụng lệnh vi để soạn thảo. Và tạo file với tên zabbix.conf
+
 > vi /etc/nginx/sites-available/zabbix.conf
->
-> \- Sau đó copy tất cả các cấu hình sau dán vào file vừa tạo. Và lưu ý
-> thay dòng server_name bằng tên hostname của bạn.
->
+
+- Sau đó copy tất cả các cấu hình sau dán vào file vừa tạo. Và lưu ý thay dòng server_name bằng tên hostname của bạn.
+
 > server 
 >
 > listen 80;
@@ -512,32 +502,29 @@ Trên R4:
 >
 > 
 >
-> 
->
-> \- Tạo symlink
+
+- Tạo symlink
 >
 > ln -s /etc/nginx/sites-available/zabbix.conf /etc/nginx/sites-enabled/
 >
-> \- Khởi động lại dịch vụ nginx:
+- Khởi động lại dịch vụ nginx:
 >
 > systemctl restart nginx
 >
-> \- Sau đó truy cập vào http://server_ip_or_name để thiết lập ở giao
+- Sau đó truy cập vào http://server_ip_or_name để thiết lập ở giao
 > diện.
 >
-> \- Giao diện thiết lập Zabbix, bạn hãy click Next step để thực hiện
-> theo hướng dẫn trên màn hình.
+- Giao diện thiết lập Zabbix, bạn hãy click Next step để thực hiện theo hướng dẫn trên màn hình.
 >
 > ![](.//media/image37.png)
 > 
 >
-> \- Zabbix check một số yêu cầu, nếu hiện OK có nghĩa mọi thứ đã hoạt
-> động bình thường.
+- Zabbix check một số yêu cầu, nếu hiện OK có nghĩa mọi thứ đã hoạt động bình thường.
 >
 > ![](.//media/image38.png)
 > 
 >
-> \- Ở bước này bạn nhập vào Password User Zabbix đã tạo ở Bước 4.
+- Ở bước này bạn nhập vào Password User Zabbix đã tạo ở Bước 4.
 >
 > ![](.//media/image39.png)
 > 
@@ -547,31 +534,31 @@ Trên R4:
 > ![](.//media/image40.png)
 > 
 >
-> \- Phần time zone bạn hãy chọn múi giờ mà bạn sử dụng. Ở đây mình chọn
+- Phần time zone bạn hãy chọn múi giờ mà bạn sử dụng. Ở đây mình chọn
 > múi giờ +7
 >
 > ![](.//media/image41.png)
 > 
 >
-> \- Tiếp tục nhấn Next step
+- Tiếp tục nhấn Next step
 >
 > ![](.//media/image42.png)
 >
 > ![](.//media/image43.png)
 > 
 >
-> \- Ở khung đăng nhập, bạn hãy nhập vào thông tin mặc định của Zabbix
+- Ở khung đăng nhập, bạn hãy nhập vào thông tin mặc định của Zabbix
 > là: Admin/zabbix
 >
 > ![](.//media/image44.png)
 > 
 >
-> \- Khi đăng nhập thành công. Bạn sẽ thấy giao diện như sau:
+- Khi đăng nhập thành công. Bạn sẽ thấy giao diện như sau:
 >
 > ![](.//media/image45.png)
 > 
 >
-> **Tài liệu tham khảo**
+**Tài liệu tham khảo**
 >
 > https://cuongquach.com/zabbix-la-gi-tim-hieu-he-thong-zabbix.html
 >
